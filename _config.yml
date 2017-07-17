@@ -1,7 +1,0 @@
-name:          레진 마크업가이드
-description:   HTML/CSS 코드 작성을 위한 사내 표준
-url:           http://lezhin.github.io/markup-guide
-
-markdown:      rdiscount
-permalink:     pretty
-pygments:      true
