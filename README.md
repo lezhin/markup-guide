@@ -1,20 +1,57 @@
 # 레진 마크업 가이드
 
-레진 마크업 가이드는 유연하고 지속 가능한 코드 작성을 위한 사내 표준 문서입니다. 필요할 때마다 논의하여 지속적으로 업데이트합니다.
-
-레진 마크업 가이드는 [Code Guide by @mdo](http://mdo.github.io/code-guide)를 기반으로 작성했습니다. @mdo의 가이드에 포함된 내용이라도 상식에 준하는 내용들과 지나치게 장황한 내용은 제거했으며 팀내에서 새롭게 논의한 내용을 추가했습니다.
+레진 마크업 가이드는 유연하고 지속 가능한 코드 작성을 위한 사내 표준입니다. [Code Guide by @mdo](http://mdo.github.io/code-guide)를 기반으로 상식적인 내용과 장황한 내용은 제거했으며 팀에서 논의한 내용을 추가했습니다.
 
 - - -
 
-## 기본 규칙
-
-W3C 문법과 레진 마크업 가이드라인을 지켜 코드를 작성합니다. 수정해야 할 내용이 있다면 팀내에서 논의하여 문서를 업데이트합니다. 많은 사람이 참여했더라도 한명이 쓴 것처럼 보이는 코드가 좋습니다.
+1. [기본 규칙](#basic)
+2. [에디터 설정](#editor)
+3. [HTML](#html)
+    1. [HTML 문법](#html-syntax)
+    2. [HTML5 doctype](#html-doctype)
+    3. [언어(lang) 속성](#html-lang)
+    4. [인코딩 설정](#html-charset)
+    5. [IE 호환모드 설정](#html-ie-compatible)
+    6. [CSS, JavaScript 삽입](#html-type-attr)
+    7. [속성(attr) 선언 순서](#html-attr-order)
+    8. [Boolean 속성](#html-boolean-attr)
+    9. [마크업 간소화](#html-simplification)
+    10. [문서 개요(HTML5 아웃라인)](#html-outline)
+    11. [완벽함보다는 실용성을 추구](#html-pragmatism)
+4. [CSS](#css)
+    1. [CSS 문법](#css-syntax)
+    2. [속성(property) 선언 순서](#css-property-order)
+    3. [미디어 쿼리 위치](#css-media-query)
+    4. [단일 속성](#css-single-property)
+    5. [전처리문 중첩](#css-preprocessor-nesting)
+    6. [전처리문 계산식](#css-preprocessor-calculation)
+    7. [주석](#css-comment)
+    8. [클래스 작명](#css-naming)
+    9. [선택자](#css-selector)
+    10. [컴포넌트](#css-component)
+5. [License](#license)
 
 - - -
 
-## HTML
+## 기본 규칙 <a id="basic" href="#basic">#</a>
 
-### HTML 문법 <a id="h1" href="#h1">#</a>
+W3C 문법과 레진 마크업 가이드라인을 지켜 코드를 작성합니다. 많은 사람이 참여했더라도 한명이 쓴 것처럼 보이는 코드가 좋습니다. 팀원들과 논의하여 업데이트할 수 있습니다.
+
+- - -
+
+## 에디터 설정 <a id="editor" href="#editor">#</a>
+규칙을 준수하기 위해 에디터 환경을 설정해 둡니다.
+
+* 들여쓰기는 공백문자 4개로 합니다.
+* 파일 저장 시 마지막에 오는 공백문자를 제거합니다.
+* 파일 저장 시 UTF-8 인코딩으로 저장합니다.
+* 파일의 맨 마지막은 줄바꿈으로 끝납니다.
+
+- - -
+
+## HTML <a id="html" href="#html">#</a>
+
+### HTML 문법 <a id="html-syntax" href="#html-syntax">#</a>
 
 * 들여쓰기는 공백문자 4 개를 사용합니다.
 * 속성(attr)값에는 항상 큰 따옴표를 사용합니다.
@@ -34,7 +71,7 @@ W3C 문법과 레진 마크업 가이드라인을 지켜 코드를 작성합니�
     </html>
 
 
-### HTML5 doctype <a id="h2" href="#h2">#</a>
+### HTML5 doctype <a id="html-doctype" href="#html-doctype">#</a>
 모든 HTML 페이지 시작 지점에 공백 없이 HTML5 문서 타입을 선언합니다.
 
     <!DOCTYPE html>
@@ -43,7 +80,7 @@ W3C 문법과 레진 마크업 가이드라인을 지켜 코드를 작성합니�
         </head>
     </html>
 
-### 언어(lang) 속성 <a id="h3" href="#h3">#</a>
+### 언어(lang) 속성 <a id="html-lang" href="#html-lang">#</a>
 문서 루트인 `html` 요소에 `lang` 속성을 추가합니다.
 * 영어: `en`
 * 한국어: `ko`
@@ -55,19 +92,19 @@ W3C 문법과 레진 마크업 가이드라인을 지켜 코드를 작성합니�
         ...
     </html>
 
-### 인코딩 설정 <a id="h4" href="#h4">#</a>
+### 인코딩 설정 <a id="html-charset" href="#html-charset">#</a>
 문자열 인코딩을 명시적으로 선언합니다.
 
     <head>
         <meta charset="UTF-8">
     </head>
 
-### IE 호환모드 설정 <a id="h5" href="#h5">#</a>
+### IE 호환모드 설정 <a id="html-ie-compatible" href="#html-ie-compatible">#</a>
 인터넷 익스플로러가 항상 최신 버전의 레이아웃 엔진을 사용하여 문서를 렌더링하도록 지정합니다.
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-### CSS, JavaScript 삽입 <a id="h6" href="#h6">#</a>
+### CSS, JavaScript 삽입 <a id="html-type-attr" href="#html-type-attr">#</a>
 CSS와 JavaScript를 불러올 때 `type` 속성을 생략합니다.
 
     <!-- External CSS -->
@@ -79,7 +116,7 @@ CSS와 JavaScript를 불러올 때 `type` 속성을 생략합니다.
     <!-- JavaScript -->
     <script src="code-guide.js"></script>
 
-### 속성(attr) 순서 <a id="h7" href="#h7">#</a>
+### 속성(attr) 선언 순서 <a id="html-attr-order" href="#html-attr-order">#</a>
 HTML 태그 속성은 가독성을 위해 아래 순서대로 작성합니다.
 
 1. 선택자로 사용하는 `id`, `class` 속성은 가장 앞에 선언합니다.
@@ -91,14 +128,14 @@ HTML 태그 속성은 가독성을 위해 아래 순서대로 작성합니다.
     <input class="form-control" type="text">
     <img src="..." alt="..." title="...">
 
-### Boolean 속성 <a id="h8" href="#h8">#</a>
+### Boolean 속성 <a id="html-boolean-attr" href="#html-boolean-attr">#</a>
 불리언 속성의 값은 지정하지 않습니다.
 
     <input type="text" disabled>
     <input type="checkbox" value="1" checked>
     <option value="1" selected>1</option>
 
-### 마크업 간결화 <a id="h9" href="#h9">#</a>
+### 마크업 간소화 <a id="html-simplification" href="#html-simplification">#</a>
 모듈화를 고려하여 마크업은 간결하게 작성합니다.
 
     <!-- Not so great -->
@@ -109,7 +146,7 @@ HTML 태그 속성은 가독성을 위해 아래 순서대로 작성합니다.
     <!-- Better -->
     <img class="avatar" src="..." alt="...">
 
-### 문서 개요(HTML5 아웃라인) <a id="h10" href="#h10">#</a>
+### 문서 개요(HTML5 아웃라인) <a id="html-outline" href="#html-outline">#</a>
 섹셔닝 요소와 헤딩 요소를 이용하여 문서 개요를 논리적으로 구성합니다. 섹셔닝 요소(`section`, `article`, `nav`, `aside`)에는 헤딩 요소를 명시적으로 사용합니다. 명시적 헤딩 기법은 `h1` 요소를 한 페이지에 한 번 사용합니다. 헤딩 요소만으로 문서 개요를 파악할 수 있어야 합니다.
 
     <!-- Bad HTML -->
@@ -134,14 +171,15 @@ HTML 태그 속성은 가독성을 위해 아래 순서대로 작성합니다.
         </article>
     </body>
 
-### 완벽함보다는 실용성을 추구 <a id="h11" href="#h11">#</a>
+### 완벽함보다는 실용성을 추구 <a id="html-pragmatism" href="#html-pragmatism">#</a>
 HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하기는 하지만 추가적인 노력이 필요하지 않은 범위내에서만 합니다. 최대한 간결한 코드를 사용하도록 합니다.
+
 
 - - -
 
-## CSS
+## CSS <a id="css" href="#css">#</a>
 
-### CSS 문법 <a id="c1" href="#c1">#</a>
+### CSS 문법 <a id="css-syntax" href="#css-syntax">#</a>
 * 들여쓰기는 공백문자 4 개를 사용합니다.
 * 쉼표(`,`)를 사용하여 선택자를 그룹핑하는 경우 쉼표 뒤에서 개행합니다.
 * 여는 중괄호(`{`) 앞에 공백을 한칸 놓습니다.
@@ -176,7 +214,7 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
         box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
     }
 
-### 속성(property) 선언 순서 <a id="c2" href="#c2">#</a>
+### 속성(property) 선언 순서 <a id="css-property-order" href="#css-property-order">#</a>
 포지셔닝과 박스모델 관련 속성을 가장 먼저 작성하고 나머지는 뒤에 놓습니다.
 
     .declaration-order {
@@ -213,7 +251,7 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
         opacity: 1;
     }
 
-### 미디어 쿼리 위치 <a id="c3" href="#c3">#</a>
+### 미디어 쿼리 위치 <a id="css-media-query" href="#css-media-query">#</a>
 미디어쿼리는 관련 규칙이 있는 자리에 모아 놓습니다.
 
     .element { ... }
@@ -226,7 +264,7 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
         .element-selected { ... }
     }
 
-### 단일 속성 작성 <a id="c4" href="#c4">#</a>
+### 단일 속성 <a id="css-single-property" href="#css-single-property">#</a>
 하나의 속성만 포함한다면 개행하지 않습니다.
 
     /* Single declarations on one line */
@@ -242,7 +280,7 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
         background-image: url(../img/sprite.png);
     }
 
-### Sass 중첩 구문 사용 <a id="c5" href="#c5">#</a>
+### 전처리문 중첩 <a id="css-preprocessor-nesting" href="#css-preprocessor-nesting">#</a>
 과도하게 중첩하지 않습니다. 선택자 반복을 피하는 용도로만 중첩을 사용하십시오.
 
     // Without nesting
@@ -255,7 +293,7 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
         > td { … }
     }
 
-### Sass 계산식 사용 <a id="c6" href="#c6">#</a>
+### 전처리문 계산식 <a id="css-preprocessor-calculation" href="#css-preprocessor-calculation">#</a>
 계산식에 괄호를 사용합니다.
 
     // Bad example
@@ -268,7 +306,7 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
         margin: 10px 0 (@variable * 2) 10px;
     }
 
-### 주석 <a id="c7" href="#c7">#</a>
+### 주석 <a id="css-comment" href="#css-comment">#</a>
 주석은 간결하게 작성합니다. scss 파일은 한 줄 주석(`//`) 사용이 가능하지만 CSS 파일에 남지 않습니다.
 
     /* Bad example */
@@ -283,7 +321,7 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
         ...
     }
 
-### 클래스 작명 <a id="c8" href="#c8">#</a>
+### 클래스 작명 <a id="css-naming" href="#css-naming">#</a>
 * 클래스 이름 규칙은 [BEM(Block Element Modifier)](http://getbem.com/naming/)스타일을 따릅니다.
 * 클래스 이름은 소문자, 숫자, 대시(`-`), 언더스코어(`_`)를 사용합니다. 카멜 케이스와 파스칼 케이스는 사용하지 않습니다.
 * 짧고 간결하게 작성하되 축약하지 않습니다. `.btn`과 같이 쉽게 의미를 유추 할 수 있는 축약은 괜찮지만 `.bn`와 같이 의미를 파악하기 어려운 축약은 사용하지 않습니다.
@@ -306,7 +344,7 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
     .search-form__btn { ... }               // Block__Element
     .search-form__btn--disabled { ... }     // Block__Element--Modifier
 
-### 선택자 <a id="c9" href="#c9">#</a>
+### 선택자 <a id="css-selector" href="#css-selector">#</a>
 * 타입 선택자를 사용하지 않습니다. 클래스 선택자를 사용합니다.
 * 선택자 우선순위(specificity)를 높이는 조합과 중첩을 사용하지 않습니다. 조합과 중첩은 3회를 초과하지 않습니다.
 * 여러 클래스를 묶을 때 쉼표 후 개행합니다.
@@ -323,7 +361,7 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
     .tweet__header,
     .tweet__username { ... }
 
-### 구성 <a id="c10" href="#c10">#</a>
+### 컴포넌트 <a id="css-component" href="#css-component">#</a>
 * 컴포넌트 별로 코드를 모아서 작성합니다.
 * 계층 구조의 순서에 따라 작성합니다.
 * 코드 블럭을 분리할 때 공백(줄 바꿈)을 일관성 있게 사용합니다.
@@ -338,17 +376,9 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
     .modal__footer { ... }
     .modal__footer--disabled { ... }
 
-### 에디터 설정 <a id="c11" href="#c11">#</a>
-규칙을 준수하기 위해 에디터 환경을 설정해 둡니다.
-
-* 들여쓰기는 공백문자 4개로 합니다.
-* 파일 저장 시 마지막에 오는 공백문자를 제거합니다.
-* 파일 저장 시 UTF-8 인코딩으로 저장합니다.
-* 파일의 맨 마지막은 줄바꿈으로 끝납니다.
-
 
 - - -
 
-### License
+### License <a id="license" href="#license">#</a>
 
 Released under MIT by, and copyright 2014, @mdo and @lezhin
