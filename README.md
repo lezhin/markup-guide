@@ -212,10 +212,10 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
 { background: url("ex.png"); }
 
 /* O: 속성 선택자 속성값에 홑따옴표 사용 */
-    [type='text'] { ... }
+[type='text'] { ... }
 
 /* O: CSS 속성값에 홑따옴표 사용 */
-    { background: url('ex.png'); }
+{ background: url('ex.png'); }
 ```
 
 한 줄에 하나의 속성만 작성하고, 마지막은 항상 세미콜론(`;`)으로 끝냅니다.
@@ -402,7 +402,7 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
 
 ### 클래스 작명 <a id="css-naming" href="#css-naming">#</a>
 * 클래스 이름 규칙은 [BEM(Block Element Modifier)](http://getbem.com/naming/)스타일을 따릅니다.
-* 클래스 이름은 소문자, 숫자, 대시(`-`), 언더스코어(`_`)를 사용합니다. 카멜 케이스와 파스칼 케이스는 사용하지 않습니다.
+* 클래스 이름은 영문 카멜케이스(camelCase), 숫자, 더블 대시(`--`), 더블 언더스코어(`__`)만 사용합니다.
 * 짧고 간결하게 작성하되 축약하지 않습니다. `.btn`과 같이 쉽게 의미를 유추 할 수 있는 축약은 괜찮지만 `.bn`와 같이 의미를 파악하기 어려운 축약은 사용하지 않습니다.
 * 시각적 표현 대신 의미, 구조, 목적을 담아 작명합니다.
 * 변화 또는 상태를 나타내는 추가 클래스는 블록 또는 요소 이름에 더블 대시(`--`)를 붙여 작명합니다.
@@ -416,11 +416,10 @@ HTML 표준을 준수하고 시맨틱한 문서를 작성하기 위해 노력하
 .SearchformButtonDisabled { ... }
 
 /* Good example */
-.search-form { ... }                    // Block
-.search-form--theme-lezhin { ... }      // Block--Modifier
-.search-form__input { ... }             // Block__Element
-.search-form__btn { ... }               // Block__Element
-.search-form__btn--disabled { ... }     // Block__Element--Modifier
+.blockName { ... }                              // Block
+.blockName__elementName { ... }                 // Element
+.blockName--modifierName { ... }                // Block Modifier
+.blockName__ElementName--modifierName { ... }   // Element Modifier
 ```
 
 ### 선택자 <a id="css-selector" href="#css-selector">#</a>
